@@ -353,6 +353,14 @@ module Azure
       )
     end
 
+    def load_balancer_rules(resource_group, loadbalancer_name)
+      get(
+        url: link(location: "Microsoft.Network/loadBalancers/#{loadbalancer_name}/loadBalancingRules",
+                  resource_group: resource_group),
+        api_version: '2018-08-01',
+      )
+    end
+
     def load_balancers(resource_group)
       get(
         url: link(location: 'Microsoft.Network/loadBalancers/',

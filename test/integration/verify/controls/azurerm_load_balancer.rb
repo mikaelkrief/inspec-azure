@@ -10,5 +10,7 @@ control 'azurerm_load_balancer' do
     its('sku')        { should_not be_nil }
     its('location')   { should_not be_nil }
     its('type')       { should eq 'Microsoft.Network/loadBalancers' }
+    its('loadbalancing_rules') {should_not be_empty}
+    its('inbound_nat_pools') {should be_empty}
   end
 end

@@ -33,6 +33,32 @@ class AzurermLoadBalancer < AzurermSingularResource
     @exists = true
   end
 
+  def loadbalancing_rules
+    management.load_balancer_rules(@resource_group, @loadbalancer_name)
+  end
+
+
+  def frontendIp_configurations
+    @frontendIp_configurations ||= @properties['frontendIPConfigurations']
+  end
+
+  def backendend_address_pools
+    @backendend_address_pools ||= @properties['backendAddressPools']
+  end
+
+  def probes
+    @probes ||= @properties['probes']
+  end
+
+  def inbound_nat_rules
+    @inbound_nat_rules ||= @properties['inboundNatRules']
+  end
+
+  def inbound_nat_pools
+    @inbound_nat_pools ||= @properties['inboundNatPools']
+  end
+
+
   def to_s
     "Azure Load Balancer: '#{name}'"
   end

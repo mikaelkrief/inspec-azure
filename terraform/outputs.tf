@@ -198,3 +198,15 @@ output "mysql_database_name" {
 output "lb_name" {
   value = "${module.azurerm_lb.azurerm_lb_name}"
 }
+
+output "lb_rules" {
+  value = "${module.azurerm_lb.lb_rules}"
+}
+
+output "lb_rules_frontend_port" {
+  value = "${module.azurerm_lb.*.lb_rules_frontend_port}"
+}
+
+output "lb_rules_backend_port" {
+  value = "${module.azurerm_lb.*.lb_rules_backend_port}"
+}
